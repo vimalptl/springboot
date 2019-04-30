@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DhmsApplication<h2manage>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.vmx.h2manage.DhmsApplication",
+            "projectName": "h2manage",
+            "args": ""
+        }
+    ]
+}
