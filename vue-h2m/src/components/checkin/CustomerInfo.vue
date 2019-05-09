@@ -1,9 +1,8 @@
 <template>
   <section>
     <form @submit.prevent="validateBeforeSubmit">
-      <div class="columns is-mobile">
-        <div class="column is-three-fifths is-offset-one-fifth">
-
+      <div class="columns is-desktop">
+        <div class="column">
           <b-field
             label="First name"
             :type="{'is-danger': errors.has('nameFirst')}"
@@ -20,41 +19,53 @@
             <b-input v-model="nameLast" name="nameLast" v-validate="'required'"/>
           </b-field>
 
-          <b-field
+          <!-- <b-field
             label="Gender"
             :addons="false"
             :type="{'is-danger': errors.has('gender')}"
-            :message="errors.first('gender')" 
+            :message="errors.first('gender')"
           >
             <b-radio v-model="gender" name="gender" native-value="M">Male</b-radio>
             <b-radio v-model="gender" name="gender" native-value="F">Female</b-radio>
-          </b-field>
-
+          </b-field>-->
 
           <b-field
             label="Address"
             :type="{'is-danger': errors.has('addr1')}"
             :message="errors.first('addr1')"
           >
-            <b-input v-model="addr1" name="addr1" />
+            <b-input v-model="addr1" name="addr1"/>
           </b-field>
 
-          <b-field
-            label="City"
-          >
-            <b-input v-model="city" name="city" />
+          <b-field label="City">
+            <b-input v-model="city" name="city"/>
           </b-field>
 
-        <b-field label="Email">
-            <b-input v-model="email" placeholder="Email"
-                type="email"
-                icon="email">
-            </b-input>
-        </b-field>
+          <b-field label="State">
+            <b-select placeholder="Select a State">
+              <option
+                v-for="option in statesList"
+                :value="option.abbreviation"
+                :key="option.abbreviation"
+              >{{ option.name }}</option>
+            </b-select>
+          </b-field>
 
+          <b-field label="Country">
+            <b-select placeholder="Country">
+              <option
+                v-for="option in countryList"
+                :value="option.name"
+                :key="option.name"
+              >{{ option.name }}</option>
+            </b-select>
+          </b-field>
 
-
-
+          <b-field label="Email">
+            <b-input v-model="email" placeholder="Email" type="email" icon="email"></b-input>
+          </b-field>
+        </div>
+        <div class="column">
           <b-field
             label="ID Type"
             :type="{'is-danger': errors.has('idType')}"
@@ -71,48 +82,13 @@
             <b-input v-model="idNumber" name="idNumber" v-validate="'required'"/>
           </b-field>
 
-
-        <b-field label="Notes">
-            <b-input maxlength="200"  v-model="notes"  type="textarea" ></b-input>
-        </b-field>
-
-
-          <!-- <b-field label="Rounded">
-            <b-select placeholder="Select a character" rounded  v-for="(st,index) in statesList" v-bind:key="index">
-              <option :value='st.value'>st.label</option>
-            </b-select>
-          </b-field> -->
-          <section>
-            <b-field>
-              <b-switch v-model="isAmPm">AM/PM</b-switch>
-            </b-field>
-            <b-field label="Select time">
-              <b-timepicker
-                rounded
-                placeholder="Click to select..."
-                icon="clock"
-                :hour-format="format"
-              ></b-timepicker>
-            </b-field>
-          </section>
-          <section>
-            <div class="block">
-              <b-checkbox v-model="checkboxGroup" native-value="Silver">Silver</b-checkbox>
-              <b-checkbox v-model="checkboxGroup" native-value="Flint">Flint</b-checkbox>
-              <b-checkbox v-model="checkboxGroup" native-value="Vane">Vane</b-checkbox>
-              <b-checkbox v-model="checkboxGroup" native-value="Billy" disabled>Billy</b-checkbox>
-            </div>
-            <p class="content">
-              <b>Selection:</b>
-              {{ checkboxGroup }}
-            </p>
-          </section>
-
-          <button type="submit" class="button is-primary">Submit</button>
+          <b-field label="Notes">
+            <b-input maxlength="200" v-model="notes" type="textarea"></b-input>
+          </b-field>
         </div>
       </div>
+      <button type="submit" class="button is-primary">Submit</button>
     </form>
-
   </section>
 </template>
 
@@ -123,7 +99,7 @@ import Vue from "vue";
 import VeeValidate from "vee-validate";
 import Buefy from "buefy";
 import "buefy/dist/buefy.css";
-
+import TypeLists from "../../data/typelists";
 Vue.use(Buefy);
 const config = {
   aria: true,
@@ -145,36 +121,30 @@ const config = {
 Vue.use(VeeValidate, config);
 
 export default {
-  name: "bueforms",
+  name: "customerinfo",
   data() {
     return {
-
-
-company : '',
-nameFirst : '',
-nameLast: '',
-gender: '',
-addr1: '',
-addr2: '',
-city: '',
-state: '',
-zip: '',
-country:'',
-phone: '',
-email: '',
-fax: '',
-userid: '',
-idNumber: '',
-idType: '',
-imgfile: '',
-dnr: false,
-note: '',
-      age: null,
-      question: null,
-      flagTerms: false,
-      isSwitchedCustom: false,
-      checkboxGroup: [],
-      isAmPm: false
+      company: "",
+      nameFirst: "",
+      nameLast: "",
+      gender: "",
+      addr1: "",
+      addr2: "",
+      city: "",
+      state: "",
+      zip: "",
+      country: "",
+      phone: "",
+      email: "",
+      fax: "",
+      userid: "",
+      idNumber: "",
+      idType: "",
+      imgfile: "",
+      dnr: false,
+      note: "",
+      statesList: TypeLists.States,
+      countryList: TypeLists.Countries
     };
   },
   computed: {
@@ -199,7 +169,7 @@ note: '',
           position: "is-bottom"
         });
       });
-    },
+    }
   }
 };
 </script>
