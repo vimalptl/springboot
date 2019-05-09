@@ -1,3 +1,5 @@
+import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from "constants";
+
 export const API_BASE_URL = 'http://localhost:5000/api';
 //export const API_BASE_URL = '/api';
 export const ACCESS_TOKEN = 'accessToken';
@@ -27,12 +29,18 @@ const request = (options) => {
     );
 };
 
-export function getAllPolls(page, size) {
-    page = page || 0;
-    size = size || POLL_LIST_SIZE;
+export function getAllCountry() {
 
     return request({
-        url: API_BASE_URL + "/polls?page=" + page + "&size=" + size,
+        url: API_BASE_URL + "/common/countries",
+        method: 'GET'
+    });
+}
+
+export function getAllStates() {
+
+    return request({
+        url: API_BASE_URL + "/common/states",
         method: 'GET'
     });
 }

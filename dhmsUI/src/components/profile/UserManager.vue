@@ -7,6 +7,7 @@
     </li>
   </ul>
 <section>
+        {{ signupRequest }}
         <b-message type="is-danger" v-if="notification.error.length > 0">
             Sorry! Something went wrong. Please try again!
         </b-message>
@@ -28,7 +29,7 @@
           class="input is-success" 
           :type="username.type" 
           placeholder="Text input" 
-          :value="username.value">
+          :value="username.value"  @change="isAvailUsername()">
     <span class="icon is-small is-left">
       <i class="fas fa-user"></i>
     </span>
@@ -42,7 +43,7 @@
 <div class="field">
   <label class="label">{{email.label}}</label>
   <div class="control has-icons-left has-icons-right">
-    <input v-model="email.value"  class="input is-danger" :type="email.type" placeholder="Email input" :value="email.value">
+    <input v-model="email.value"  class="input is-danger" :type="email.type" placeholder="Email input" :value="email.value" @change="isAvailEmail()"> 
     <span class="icon is-small is-left">
       <i class="fas fa-envelope"></i>
     </span>
@@ -56,7 +57,7 @@
 <div class="field">
   <label class="label">{{password.label}}</label>
   <p class="control has-icons-left">
-    <input v-model="password.value"  class="input" :type="password.type" placeholder="Password" :value="password.value">
+    <input v-model="password.value"  class="input" :type="password.type" placeholder="Password" :value="password.value" >
     <span class="icon is-small is-left">
       <i class="fas fa-lock"></i>
     </span>
@@ -82,7 +83,6 @@
 </template>
 
 <script>
-  import uService from '../../services/user.js'
   import { signup, checkUsernameAvailability, checkEmailAvailability } from '../../utils/APIUtils';
 
 export default {
@@ -131,7 +131,39 @@ export default {
         },
         error: ''
       },
+/*  Common List  - This does not belong in this file */
+RoomDef: [
+    {
+        value: 'S',
+        label: 'Smoking'
+    },
+    {
+        value: 'NS',
+        label: 'Non-Smoking'
+    }
+],
+ReservationStatus: [
+    {
+        value: 'O',
+        label: 'Open'
+    },
+    {
+        value: 'N',
+        label: 'No Show'
+    },
+    {
+        value: 'I',
+        label: 'Checked-In'
+    },
+    {
+        value: 'C',
+        label: 'Cancelled'
+    }
+],
+/*   End of commond List */
       agreement: false,
+      hasEmail : false,
+      hasUsername : false,
       notification: {
         success: {},
         error: {}
@@ -145,18 +177,19 @@ export default {
       let signupRequest = {
         name : this.name.value,
         username  : this.username.value,
-        email : this.email.vauel,
+        email : this.email.value,
         password : this.password.value,
         agreement: this.agreement,
       }
       signup(signupRequest)
         .then(response => {
-            notification.success({
+            this.notification.success({
                 message: 'success',
                 description: "Thank you! You're successfully registered. Please Login to continue!",
             });          
         }).catch(error => {
-            notification.error({
+            alert (JSON.stringify(error));
+            this.notification.error({
                 message: 'error',
                 description: error.message || 'Sorry! Something went wrong. Please try again!'
             });
@@ -168,22 +201,20 @@ export default {
       //       });
       // }
     },
-    hasEmail () {
-      this.errors = [];
-      this.success = [];
-      uService.checkEmailAvailability(this.email.value).then(response => {
-            this.hasEmail = false;
-        }).catch(e => {
+    isAvailEmail () {
+      this.hasEmail = false;
+      checkEmailAvailability(this.email.value).then(response => {
+            this.hasEmail = !response.available;
+        }).catch(error => {
             this.hasEmail = true;
         });
       },
-    hasUsername () {
-      this.errors = [];
-      this.success = [];
-      uService.checkUsernameAvailability(this.username.value).then(response => {
-            this.hasUserName = false;
-        }).catch(e => {
-            this.hasUserName = false;
+    isAvailUsername () {
+      this.hasUsername = false;
+      checkUsernameAvailability(this.username.value).then(response => {
+          this.hasUsername = !response.available;
+        }).catch(error => {
+          this.hasUsername = true;
         });
       }
     }

@@ -23,9 +23,7 @@
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item">
-            New Customer
-          </a>
+          <router-link to="/customer/info" class="navbar-item">New Customer</router-link>
           <router-link to="/customer/search" class="navbar-item">Existing Customer</router-link>
 
         </div>

@@ -6,6 +6,7 @@ import Login from './components/Login.vue'
 import Signup from './components/profile/UserManager.vue'
 import FAQ from './components/FAQ.vue'
 import CustomerSearch from './components/checkin/CustomerSearch.vue'
+import CustomerInfo from './components/checkin/CustomerInfo.vue'
 //import UserManager from './components/profile/UserManager.vue'
 import NotFound from './components/Notfound.vue'
 
@@ -22,6 +23,7 @@ const router = new VueRouter({
         { path: '/signup', name: "signup",  component: Signup},
         { path: '/faq', name: "faq",  component: FAQ},        
         { path: '/customer/search', name: "CustomerSearch",  component: CustomerSearch},        
+        { path: '/customer/info', name: "CustomerInfo",  component: CustomerInfo},        
         { path: '/', component: Category},
         { path: '*', name: "notfound", component: NotFound}
     ]

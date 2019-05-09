@@ -1,0 +1,372 @@
+[
+    {
+        "label": "ALABAMA",
+        "value": "AL",
+        "value2": null
+    },
+    {
+        "label": "ALASKA",
+        "value": "AK",
+        "value2": null
+    },
+    {
+        "label": "ARIZONA",
+        "value": "AZ",
+        "value2": null
+    },
+    {
+        "label": "ARKANSAS",
+        "value": "AR",
+        "value2": null
+    },
+    {
+        "label": "CALIFORNIA",
+        "value": "CA",
+        "value2": null
+    },
+    {
+        "label": "COLORADO",
+        "value": "CO",
+        "value2": null
+    },
+    {
+        "label": "CONNECTICUT",
+        "value": "CT",
+        "value2": null
+    },
+    {
+        "label": "DELAWARE",
+        "value": "DE",
+        "value2": null
+    },
+    {
+        "label": "DISTRICT OF COLUMBIA",
+        "value": "DC",
+        "value2": null
+    },
+    {
+        "label": "FLORIDA",
+        "value": "FL",
+        "value2": null
+    },
+    {
+        "label": "GEORGIA",
+        "value": "GA",
+        "value2": null
+    },
+    {
+        "label": "HAWAII",
+        "value": "HI",
+        "value2": null
+    },
+    {
+        "label": "IDAHO",
+        "value": "ID",
+        "value2": null
+    },
+    {
+        "label": "ILLINOIS",
+        "value": "IL",
+        "value2": null
+    },
+    {
+        "label": "INDIANA",
+        "value": "IN",
+        "value2": null
+    },
+    {
+        "label": "IOWA",
+        "value": "IA",
+        "value2": null
+    },
+    {
+        "label": "KANSAS",
+        "value": "KS",
+        "value2": null
+    },
+    {
+        "label": "KENTUCKY",
+        "value": "KY",
+        "value2": null
+    },
+    {
+        "label": "LOUISIANA",
+        "value": "LA",
+        "value2": null
+    },
+    {
+        "label": "MAINE",
+        "value": "ME",
+        "value2": null
+    },
+    {
+        "label": "MARYLAND",
+        "value": "MD",
+        "value2": null
+    },
+    {
+        "label": "MASSACHUSETTS",
+        "value": "MA",
+        "value2": null
+    },
+    {
+        "label": "MICHIGAN",
+        "value": "MI",
+        "value2": null
+    },
+    {
+        "label": "MINNESOTA",
+        "value": "MN",
+        "value2": null
+    },
+    {
+        "label": "MISSISSIPPI",
+        "value": "MS",
+        "value2": null
+    },
+    {
+        "label": "MISSOURI",
+        "value": "MO",
+        "value2": null
+    },
+    {
+        "label": "MONTANA",
+        "value": "MT",
+        "value2": null
+    },
+    {
+        "label": "NEBRASKA",
+        "value": "NE",
+        "value2": null
+    },
+    {
+        "label": "NEVADA",
+        "value": "NV",
+        "value2": null
+    },
+    {
+        "label": "NEW HAMPSHIRE",
+        "value": "NH",
+        "value2": null
+    },
+    {
+        "label": "NEW JERSEY",
+        "value": "NJ",
+        "value2": null
+    },
+    {
+        "label": "NEW MEXICO",
+        "value": "NM",
+        "value2": null
+    },
+    {
+        "label": "NEW YORK",
+        "value": "NY",
+        "value2": null
+    },
+    {
+        "label": "NORTH CAROLINA",
+        "value": "NC",
+        "value2": null
+    },
+    {
+        "label": "NORTH DAKOTA",
+        "value": "ND",
+        "value2": null
+    },
+    {
+        "label": "OHIO",
+        "value": "OH",
+        "value2": null
+    },
+    {
+        "label": "OKLAHOMA",
+        "value": "OK",
+        "value2": null
+    },
+    {
+        "label": "OREGON",
+        "value": "OR",
+        "value2": null
+    },
+    {
+        "label": "PENNSYLVANIA",
+        "value": "PA",
+        "value2": null
+    },
+    {
+        "label": "RHODE ISLAND",
+        "value": "RI",
+        "value2": null
+    },
+    {
+        "label": "SOUTH CAROLINA",
+        "value": "SC",
+        "value2": null
+    },
+    {
+        "label": "SOUTH DAKOTA",
+        "value": "SD",
+        "value2": null
+    },
+    {
+        "label": "TENNESSEE",
+        "value": "TN",
+        "value2": null
+    },
+    {
+        "label": "TEXAS",
+        "value": "TX",
+        "value2": null
+    },
+    {
+        "label": "UTAH",
+        "value": "UT",
+        "value2": null
+    },
+    {
+        "label": "VERMONT",
+        "value": "VT",
+        "value2": null
+    },
+    {
+        "label": "VIRGIN ISLANDS",
+        "value": "VI",
+        "value2": null
+    },
+    {
+        "label": "VIRGINIA",
+        "value": "VA",
+        "value2": null
+    },
+    {
+        "label": "WASHINGTON",
+        "value": "WA",
+        "value2": null
+    },
+    {
+        "label": "WEST VIRGINIA",
+        "value": "WV",
+        "value2": null
+    },
+    {
+        "label": "WISCONSIN",
+        "value": "WI",
+        "value2": null
+    },
+    {
+        "label": "WYOMING",
+        "value": "WY",
+        "value2": null
+    },
+    {
+        "label": "ALBERTA",
+        "value": "AB",
+        "value2": null
+    },
+    {
+        "label": "NOVA SCOTIA",
+        "value": "NS",
+        "value2": null
+    },
+    {
+        "label": "BRITISH COLUMBIA",
+        "value": "BC",
+        "value2": null
+    },
+    {
+        "label": "ONTARIO",
+        "value": "ON",
+        "value2": null
+    },
+    {
+        "label": "MANITOBA",
+        "value": "MB",
+        "value2": null
+    },
+    {
+        "label": "PRINCE EDWARD ISLAND",
+        "value": "PE",
+        "value2": null
+    },
+    {
+        "label": "NEW BRUNSWICK",
+        "value": "NB",
+        "value2": null
+    },
+    {
+        "label": "QUEBEC",
+        "value": "QC",
+        "value2": null
+    },
+    {
+        "label": "NEWFOUNDLAND",
+        "value": "NF",
+        "value2": null
+    },
+    {
+        "label": "SASKATCHEWAN",
+        "value": "SK",
+        "value2": null
+    },
+    {
+        "label": "NORTHWEST TERRITORIES",
+        "value": "NT",
+        "value2": null
+    },
+    {
+        "label": "YUKON TERRITORY",
+        "value": "YT",
+        "value2": null
+    },
+    {
+        "label": "NUNAVUT",
+        "value": "NU",
+        "value2": null
+    },
+    {
+        "label": "American Samoa",
+        "value": "AS",
+        "value2": null
+    },
+    {
+        "label": "Guam",
+        "value": "GU",
+        "value2": null
+    },
+    {
+        "label": "Marshall Islands",
+        "value": "00",
+        "value2": null
+    },
+    {
+        "label": " Micronesia (Federated States of)",
+        "value": "00",
+        "value2": null
+    },
+    {
+        "label": "Palau",
+        "value": "00",
+        "value2": null
+    },
+    {
+        "label": "Puerto Rico",
+        "value": "PR",
+        "value2": null
+    },
+    {
+        "label": "U.S. Minor Outlying Islands",
+        "value": "OL",
+        "value2": null
+    },
+    {
+        "label": "NORTHERN MARIANA ISLANDS",
+        "value": "GU",
+        "value2": null
+    },
+    {
+        "label": "Other Not Listed above",
+        "value": "NL",
+        "value2": null
+    }
+]
