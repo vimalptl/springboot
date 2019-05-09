@@ -1,28 +1,19 @@
 <template>
   <div class="home">
-    <div class="container">
-      <section class="section">
-        <h1 class="title">Login History</h1>
-        <div class="field">
-          <label class="label">Enter UserId</label>
-          <div class="control">
-            <input class="input" v-model="userid" type="text" placeholder="e.g vimalp">
-          </div>
-        </div>
-
-        <div class="field is-horizonal">
-          <div class="field-label is-normal"></div>
-          <div class="field-body">
-            <div class="field">
-              <div class="control">
-                <button v-on:click="loadPosts()" class="button is-primary">Submit</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <b-table :data="loginhists" :columns="columns" paginated="true" per-page="7"></b-table>
-      </section>
-    </div>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <!-- <h1 class="title">Primary title</h1> -->
+        <h2 class="subtitle">Today is {{now}}.</h2>
+      </div>
+    </section>
+    <br>
+    <section class="container is-8">
+      <b-tabs type="is-boxed">
+        <b-tab-item label="Status" icon="google-photos"></b-tab-item>
+        <b-tab-item label="Check-In" icon="library-music"></b-tab-item>
+        <b-tab-item label="Reservation" icon="video"></b-tab-item>
+      </b-tabs>
+    </section>
   </div>
 </template>
 
@@ -35,6 +26,7 @@ export default {
     userid: "",
     loginhists: [],
     errors: [],
+    now: new Date().toString(),
     columns: [
       {
         field: "id",

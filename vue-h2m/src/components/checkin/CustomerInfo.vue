@@ -1,25 +1,33 @@
 <template>
-  <section>
-    <form @submit.prevent="validateBeforeSubmit">
-      <div class="columns is-desktop">
-        <div class="column">
-          <b-field
-            label="First name"
-            :type="{'is-danger': errors.has('nameFirst')}"
-            :message="errors.first('nameFirst')"
-          >
-            <b-input v-model="nameFirst" name="nameFirst" v-validate="'required|between:1,40'"/>
-          </b-field>
+  <div class="customerinfo">
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <h1 class="title">Add Customer</h1>
+        <h2 class="subtitle">New customer added during check-in process.</h2>
+      </div>
+    </section>
+    <br>
+    <section class="container is-8">
+      <form @submit.prevent="validateBeforeSubmit">
+        <div class="columns is-desktop">
+          <div class="column">
+            <b-field
+              label="First name"
+              :type="{'is-danger': errors.has('nameFirst')}"
+              :message="errors.first('nameFirst')"
+            >
+              <b-input v-model="nameFirst" name="nameFirst" v-validate="'required|between:1,40'"/>
+            </b-field>
 
-          <b-field
-            label="Last name"
-            :type="{'is-danger': errors.has('nameLast')}"
-            :message="errors.first('nameLast')"
-          >
-            <b-input v-model="nameLast" name="nameLast" v-validate="'required'"/>
-          </b-field>
+            <b-field
+              label="Last name"
+              :type="{'is-danger': errors.has('nameLast')}"
+              :message="errors.first('nameLast')"
+            >
+              <b-input v-model="nameLast" name="nameLast" v-validate="'required'"/>
+            </b-field>
 
-          <!-- <b-field
+            <!-- <b-field
             label="Gender"
             :addons="false"
             :type="{'is-danger': errors.has('gender')}"
@@ -27,69 +35,70 @@
           >
             <b-radio v-model="gender" name="gender" native-value="M">Male</b-radio>
             <b-radio v-model="gender" name="gender" native-value="F">Female</b-radio>
-          </b-field>-->
+            </b-field>-->
 
-          <b-field
-            label="Address"
-            :type="{'is-danger': errors.has('addr1')}"
-            :message="errors.first('addr1')"
-          >
-            <b-input v-model="addr1" name="addr1"/>
-          </b-field>
+            <b-field
+              label="Address"
+              :type="{'is-danger': errors.has('addr1')}"
+              :message="errors.first('addr1')"
+            >
+              <b-input v-model="addr1" name="addr1"/>
+            </b-field>
 
-          <b-field label="City">
-            <b-input v-model="city" name="city"/>
-          </b-field>
+            <b-field label="City">
+              <b-input v-model="city" name="city"/>
+            </b-field>
 
-          <b-field label="State">
-            <b-select placeholder="Select a State">
-              <option
-                v-for="option in statesList"
-                :value="option.abbreviation"
-                :key="option.abbreviation"
-              >{{ option.name }}</option>
-            </b-select>
-          </b-field>
+            <b-field label="State">
+              <b-select placeholder="Select a State">
+                <option
+                  v-for="option in statesList"
+                  :value="option.abbreviation"
+                  :key="option.abbreviation"
+                >{{ option.name }}</option>
+              </b-select>
+            </b-field>
 
-          <b-field label="Country">
-            <b-select placeholder="Country">
-              <option
-                v-for="option in countryList"
-                :value="option.name"
-                :key="option.name"
-              >{{ option.name }}</option>
-            </b-select>
-          </b-field>
+            <b-field label="Country">
+              <b-select placeholder="Country">
+                <option
+                  v-for="option in countryList"
+                  :value="option.name"
+                  :key="option.name"
+                >{{ option.name }}</option>
+              </b-select>
+            </b-field>
 
-          <b-field label="Email">
-            <b-input v-model="email" placeholder="Email" type="email" icon="email"></b-input>
-          </b-field>
+            <b-field label="Email">
+              <b-input v-model="email" placeholder="Email" type="email" icon="email"></b-input>
+            </b-field>
+          </div>
+          <div class="column">
+            <b-field
+              label="ID Type"
+              :type="{'is-danger': errors.has('idType')}"
+              :message="errors.first('idType')"
+            >
+              <b-input v-model="idType" name="idType" v-validate="'required'"/>
+            </b-field>
+
+            <b-field
+              label="ID Number"
+              :type="{'is-danger': errors.has('idNumber')}"
+              :message="errors.first('idNumber')"
+            >
+              <b-input v-model="idNumber" name="idNumber" v-validate="'required'"/>
+            </b-field>
+
+            <b-field label="Notes">
+              <b-input maxlength="200" v-model="notes" type="textarea"></b-input>
+            </b-field>
+          </div>
         </div>
-        <div class="column">
-          <b-field
-            label="ID Type"
-            :type="{'is-danger': errors.has('idType')}"
-            :message="errors.first('idType')"
-          >
-            <b-input v-model="idType" name="idType" v-validate="'required'"/>
-          </b-field>
-
-          <b-field
-            label="ID Number"
-            :type="{'is-danger': errors.has('idNumber')}"
-            :message="errors.first('idNumber')"
-          >
-            <b-input v-model="idNumber" name="idNumber" v-validate="'required'"/>
-          </b-field>
-
-          <b-field label="Notes">
-            <b-input maxlength="200" v-model="notes" type="textarea"></b-input>
-          </b-field>
-        </div>
-      </div>
-      <button type="submit" class="button is-primary">Submit</button>
-    </form>
-  </section>
+        <button type="submit" class="button is-primary">Submit</button>
+      </form>
+    </section>
+  </div>
 </template>
 
 <script>
