@@ -29,14 +29,26 @@ const appService = {
     },
     login(credentials) {
         return new Promise((resolve, reject) => {
-            axios.post('https://api.fullstackweekly.com/services/auth.php', credentials)
+            axios.post('http://localhost:5000/api/auth/signin', credentials)
             .then(response => {
-                resolve (response.data);
+                alert(JSON.stringify(response.data));
+                resolve (response.data);                
             }).catch(response => {
                 reject(response.status);
             })
         });
     }
+
+    // login(credentials) {
+    //     return new Promise((resolve, reject) => {
+    //         axios.post('https://api.fullstackweekly.com/services/auth.php', credentials)
+    //         .then(response => {
+    //             resolve (response.data);
+    //         }).catch(response => {
+    //             reject(response.status);
+    //         })
+    //     });
+    //}
 }
 
 export default appService;

@@ -23,56 +23,10 @@ import lhService from "../services/loginhistory.js";
 export default {
   name: "home",
   data: () => ({
-    userid: "",
-    loginhists: [],
-    errors: [],
     now: new Date().toString(),
-    columns: [
-      {
-        field: "id",
-        label: "ID",
-        width: "40",
-        numeric: true
-      },
-      {
-        field: "userId",
-        label: "UserId"
-      },
-      {
-        field: "userName",
-        label: "UserName"
-      },
-      {
-        field: "userGroup",
-        label: "Group"
-      },
-      {
-        field: "logonTime",
-        label: "Login"
-      },
-      {
-        field: "logoutTime",
-        label: "LogOut"
-      },
-      {
-        field: "updateTime",
-        label: "Last Updated"
-      }
-    ]
   }),
   methods: {
-    loadPosts() {
-      if (this.userid != null && this.userid.length > 0) {
-        let user = this.userid;
-        lhService.getPosts(user).then(data => {
-          this.loginhists = data;
-        });
-      }
-    }
   },
-  created() {
-    this.loadPosts();
-  }
 };
 </script>
 

@@ -151,7 +151,7 @@ export default {
       idType: "",
       imgfile: "",
       dnr: false,
-      note: "",
+      notes: "",
       statesList: TypeLists.States,
       countryList: TypeLists.Countries
     };

@@ -40,7 +40,7 @@ const store = new Vuex.Store({
     },
     login(state, token) {
       if (typeof window !== "undefined") {
-        window.localStorage.setItem("token", token.token);
+        window.localStorage.setItem("token", token.accessToken);
         window.localStorage.setItem("tokenExpiration", token.expiration);
       }
       state.isAuthenticated = true;
