@@ -20,14 +20,44 @@
           <b-field label="ID Number">
             <b-input v-model="idNumber" name="idNumber"/>
           </b-field>
-          <button :click="loadPosts()" class="button is-primary">Submit</button>
-
-           <b-table :data="customerlist" :columns="columns"></b-table>
-
         </div>
       </div>
-
+      <button type="button" @click="searchCustomers()" class="button is-primary">Submit</button>
     </section>
+    <section class="container is-8">
+             <b-table :data="customerlist" >
+                <template slot-scope="props">
+                <b-table-column field="nameFirst" label="First Name" sortable>
+                    {{ props.row.nameFirst }}
+                </b-table-column>
+
+                <b-table-column field="nameLast" label="Last Name" sortable>
+                    {{ props.row.nameLast }}
+                </b-table-column>
+
+                <b-table-column field="idNumber" label="ID Info" sortable>
+                    {{ props.row.idNumber }}
+                </b-table-column>
+
+                <b-table-column field="custid" label="Customer ID" sortable>
+                    {{ props.row.custId }}
+                </b-table-column>
+
+
+                <b-table-column label="Options">
+                    <router-link :to="{ name: 'customerinfo', params: { custid: props.row.custId }}">Update</router-link>
+
+                  <div class="buttons" centered>
+                      <b-button type="button" class="button is-primary">Detail</b-button>
+                      <b-button type="button" class="button is-danger" >Reserve</b-button>
+                      <b-button type="button" class="button is-warning">Check-in</b-button>
+                  </div>                  
+                </b-table-column>
+                          </template>
+             </b-table>
+</section>
+
+
   </div>
 </template>
 
@@ -36,7 +66,8 @@ import cService from '../../services/customer.js'
 
 export default {
   name: "customersearch",
-  data: () => ({
+  data() {
+    return {
     firstName: "",
     lastName: "",
     idNumber: "",
@@ -58,10 +89,13 @@ export default {
         field: "idNumber",
         label: "Id Info"
       }    ]
-  }),
+    }
+    },
   methods: {
-    loadPosts() {
-      if (this.firstName != null && this.firstName.length > 0) {
+    searchCustomers() {
+      if ((this.firstName != null && this.firstName.trim().length > 0) ||
+      (this.lastName != null && this.lastName.trim().length > 0) ||
+      (this.idNumber != null && this.idNumber.trim().length > 0)) {
         cService.searchCustomer(this.firstName, this.lastName, this.idNumber).then(data => {
             this.customerlist = data;
           }).catch(err => this.errors = err);

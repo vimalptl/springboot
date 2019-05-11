@@ -15,6 +15,7 @@ import com.vmx.h2manage.model.Customer;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> , PagingAndSortingRepository<Customer, Long> {
+    Optional<Customer> findByCustId(Integer id);
     Page<Customer> findAll(Pageable pageable);
     Page<Customer> findByNameFirst(String firstName, Pageable pageable);
     Slice<Customer> findByNameFirstAndNameLast(String firstName, String lastName, Pageable pageable);

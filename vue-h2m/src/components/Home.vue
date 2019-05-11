@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import lhService from "../services/loginhistory.js";
 
 export default {
   name: "home",
